@@ -33,7 +33,6 @@ Resources must be described with a JSON file that looks like:
 }
 ```
 
-* The file property contains a string value for the output source file
 * The prepend property is optional, it contains a string value for prepending the output file with code.
 * The append property is optional, it contains a string value for appending the output file with code. The example shows how to wrap the resources in a namespace.
 * The resources array must contain objects that have a 'name' and a 'path' property. The 'name' specifies the name of the data container for the resource in the source file. The 'path' is the file path for the resouce.
@@ -42,12 +41,12 @@ Resources must be described with a JSON file that looks like:
 Once you've created your JSON resource description files, respk can be used to generate sources as follows:
 
 ```
-./respk -o output/path -i path/to/json/desc/res1.json path/to/another/desc/res2.json
+./respk -o output/file.cpp -i path/to/json/desc/res1.json path/to/another/desc/res2.json
 ```
-* Pass in the output directory with the -o option
+* Pass in the output file with the -o option
 * Pass in one or more json files describing resources with the -i option
 
-respk should create source files in the output path. For the example JSON given above, respk might output something like:
+For the example JSON given above, respk might output something like:
 
 
 ```cpp
@@ -75,7 +74,7 @@ extern std::vector<unsigned char> const cake_jpg =
 
 } }
 ```
-These source files should be added to your project. You can then refer to the resources in your project using corresponding variable declarations:
+Any generated source files should be added to your project. You can then refer to the resources in your project using corresponding variable declarations:
 
 ```cpp
 
