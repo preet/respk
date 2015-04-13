@@ -1,5 +1,5 @@
 ##respk
-respk is a simple util to embed resources within c++ source files. It uses JSON files as input to describe resources and the output source file.
+respk is a simple util to embed resources described using JSON within c++ source files.
 
 ###License
 Apache License, version 2.0
